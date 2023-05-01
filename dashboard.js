@@ -1,5 +1,4 @@
-
-
+//main after login
 document.addEventListener("DOMContentLoaded", () => {
     function launchAndLogin(username, password) {
         electronAPI.send('launch-and-login', { username, password });
@@ -7,7 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     window.launchAndLogin = launchAndLogin;
-    // Add the saveState and loadState functions from storage.js here
+
+    // Save and load previous accounts/profiles
     function saveState(state) {
         localStorage.setItem("appState", JSON.stringify(state));
     }
@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const swiperWrapper = document.querySelector(".swiper-wrapper");
-
     const addAccountModal = document.getElementById("addAccountModal");
     const addAccountForm = document.getElementById("addAccountForm");
 
@@ -33,14 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-    addAccountButtonListener(); // Call the function here
+    addAccountButtonListener();
 
     addAccountModal.addEventListener("click", closeModal);
     window.addAccountButtonListener = addAccountButtonListener;
 
-
-
-
+    //Close account form modal
     function closeModal(event) {
         const modalContent = addAccountModal.querySelector(".bg-white");
         if (!modalContent.contains(event.target)) {
@@ -53,8 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         swiperWrapper.innerHTML = savedState;
     }
 
-
-
+    //inserts html and css for filled out profile
     function addAccountSlide(rank, username, password) {
         const swiperWrapper = document.querySelector(".swiper-wrapper");
         const newSlide = document.createElement("div");
@@ -73,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
+    //adds empty profile placeholder
     function createEmptySlide() {
         const swiperWrapper = document.querySelector(".swiper-wrapper");
         const newSlide = document.createElement("div");
@@ -88,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
         swiperWrapper.appendChild(newSlide);
-        addAccountButtonListener(); // Update the listener for the new "Add Account" button
+        addAccountButtonListener();
     }
 
     addAccountForm.addEventListener("submit", (event) => {
@@ -98,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const username = event.target.elements.username.value;
         const password = event.target.elements.password.value;
 
+        //finds empty slide to fill 
         if (rank && username && password) {
             const emptySlides = swiperWrapper.querySelectorAll('.swiper-slide');
             let emptySlideFound = false;

@@ -1,3 +1,4 @@
+//create account
 document.addEventListener('DOMContentLoaded', () => {
     const signUpBtn = document.querySelector('#sign-up-btn');
     const usernameInput = document.querySelector('#username');

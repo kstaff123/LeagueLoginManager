@@ -5,7 +5,6 @@ const robot = require('robotjs');
 const { exec } = require('child_process');
 const { ipcMain } = require('electron');
 
-// Enable live reload for all the files inside your project directory
 require('electron-reload')(__dirname);
 
 let mainWindow
@@ -26,7 +25,7 @@ function createWindow() {
 
     mainWindow.loadFile('index.html')
 
-    // Remove the menu bar
+    // Remove the toolbar
     Menu.setApplicationMenu(null)
 
     mainWindow.on('closed', function () {
@@ -49,7 +48,7 @@ app.on('activate', function () {
     }
 })
 
-
+//launch
 ipcMain.on('launch-and-login', (event, { username, password }) => {
     const leaguePath = "C:\\Riot Games\\League of Legends\\LeagueClient.exe";
 
@@ -61,9 +60,9 @@ ipcMain.on('launch-and-login', (event, { username, password }) => {
     });
 
     setTimeout(() => {
-        robot.typeStringDelayed(username, 100000); // Type out the entire string at once, with a 50ms delay between each keystroke
+        robot.typeStringDelayed(username, 100000); //100000 characters per minute, but it seemes to be capped
         robot.keyTap("tab"); // Move to the password input field
-        robot.typeStringDelayed(password, 100000); // Type out the entire string at once, with a 50ms delay between each keystroke
+        robot.typeStringDelayed(password, 100000);
         robot.keyTap("enter"); // Press Enter to log in
-    }, 5000); // 10 seconds delay to allow League of Legends to load
+    }, 5000); // 5 second delay to allow League to load
 });
