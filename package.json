@@ -1,0 +1,46 @@
+{
+  "name": "league-login-manager",
+  "version": "1.0.0",
+  "description": "An Electron app for managing League of Legends account logins",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build": "tailwindcss build tailwind.css -o main.css",
+    "watch": "tailwindcss build main.css -o tailwind.css --watch",
+    "rebuild": "electron-rebuild",
+    "build2": "electron-builder"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kstaff123/LeagueLoginManager.git"
+  },
+  "keywords": [
+    "Electron",
+    "League",
+    "of",
+    "Legends",
+    "login",
+    "manager",
+    "account"
+  ],
+  "author": "Kaige Stafford",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kstaff123/LeagueLoginManager/issues"
+  },
+  "homepage": "https://github.com/kstaff123/LeagueLoginManager#readme",
+  "devDependencies": {
+    "electron": "^24.1.2",
+    "electron-builder": "^23.6.0",
+    "electron-rebuild": "^3.2.9",
+    "tailwindcss": "^3.3.2",
+    "webpack": "^5.81.0",
+    "webpack-cli": "^5.0.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "electron-reload": "^2.0.0-alpha.1",
+    "robotjs": "^0.6.0"
+  }
+}

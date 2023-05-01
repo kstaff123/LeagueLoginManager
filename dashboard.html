@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League Login Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <style>
+        .scroll-snap-container {
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            overflow-x: scroll;
+            display: flex;
+        }
+
+        .scroll-snap-container>div {
+            scroll-snap-align: start;
+            flex: none;
+        }
+
+        #addAccountModal {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center">
+    <div class="container mx-auto py-10">
+        <h1 class="text-4xl font-bold mb-6 text-center">League Login Manager</h1>
+        <div class="swiper mySwiper" id="mySwiper" style="padding: 0;">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="flex justify-center space-x-6 overflow-x-auto py-10">
+                        <!--<div class="bg-white shadow-md rounded-lg p-4 flex flex-col items-center w-48">
+                <img src="C:\dev\League Login Manager/rankicons/diamond.png" alt="Rank Badge" class="w-24 h-24">
+                <h2 class="text-xl font-semibold mt-2">Username</h2>
+                <button class="bg-blue-500 text-white px-4 py-2 mt-4 rounded">Login</button>
+            </div>-->
+                        <!-- Repeat the above div for each profile -->
+                        <div class="bg-white shadow-md rounded-lg p-4 flex flex-col items-center w-48">
+                            <div class="bg-gray-300 w-24 h-24 rounded-full"></div>
+                            <div class="m-3.5"></div>
+                            <button class="bg-green-500 text-white px-4 py-2 mt-6 rounded accountButton">Add
+                                Account</button>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="flex justify-center space-x-6 overflow-x-auto py-10">
+                        <div class="bg-white shadow-md rounded-lg p-4 flex flex-col items-center w-48">
+                            <div class="bg-gray-300 w-24 h-24 rounded-full"></div>
+                            <div class="m-3.5"></div>
+                            <button class="bg-green-500 text-white px-4 py-2 mt-6 rounded accountButton">Add
+                                Account</button>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="flex justify-center space-x-6 overflow-x-auto py-10">
+                        <div class="bg-white shadow-md rounded-lg p-4 flex flex-col items-center w-48">
+                            <div class="bg-gray-300 w-24 h-24 rounded-full"></div>
+                            <div class="m-3.5"></div>
+                            <button class="bg-green-500 text-white px-4 py-2 mt-6 rounded accountButton">Add
+                                Account</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Account Form -->
+    <!-- Add Account Form -->
+    <div class="fixed inset-0 bg-gray-800 bg-opacity-60 hidden" id="addAccountModal" style="z-index: 9999;">
+        <div class="flex items-center justify-center h-full">
+            <div class="bg-white p-8 rounded shadow-md w-80 max-w-md mx-auto">
+                <h2 class="text-2xl font-semibold mb-4 text-center">Add Account</h2>
+                <form id="addAccountForm">
+                    <label class="block mb-4">
+                        <span class="text-gray-700 block text-center">Rank</span>
+                        <select class="form-select mt-1 block w-full text-center bg-gray-200 rounded-md" name="rank">
+                            <option value="iron">Iron</option>
+                            <option value="bronze">Bronze</option>
+                            <option value="silver">Silver</option>
+                            <option value="gold">Gold</option>
+                            <option value="platinum">Platinum</option>
+                            <option value="diamond">Diamond</option>
+                            <option value="master">Master</option>
+                            <option value="grandmaster">Grandmaster</option>
+                            <option value="challenger">Challenger</option>
+                        </select>
+                    </label>
+                    <label class="block mb-4">
+                        <span class="text-gray-700 block text-center">Username</span>
+                        <input type="text" class="form-input mt-1 block w-full text-center rounded-md bg-gray-200"
+                            placeholder="Username" name="username">
+                    </label>
+                    <label class="block mb-4">
+                        <span class="text-gray-700 block text-center">Password</span>
+                        <input type="password" class="form-input mt-1 block w-full text-center rounded-md bg-gray-200"
+                            placeholder="Password" name="password">
+                    </label>
+                    <div class="text-center">
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: "3",
+            spaceBetween: 0,
+            freeMode: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                speed: 100,
+            },
+        });
+
+    </script>
+
+    <script src="dashboard.js"></script>
+
+
+</body>
+
+</html>
